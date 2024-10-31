@@ -2,7 +2,10 @@ import styles from '../../styles/movie-videos.module.css';
 
 async function getVideos(id: string) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_MOVIES_URL}/${id}/videos`
+    `${
+      process.env.NEXT_PUBLIC_MOVIES_URL ||
+      'https://nomad-movies.nomadcoders.workers.dev/movies'
+    }/${id}/videos`
   );
 
   return response.json();

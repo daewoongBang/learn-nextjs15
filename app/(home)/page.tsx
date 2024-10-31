@@ -6,7 +6,10 @@ export const metadata = {
 };
 
 async function getMovies() {
-  const response = await fetch(process.env.NEXT_PUBLIC_MOVIES_URL);
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_MOVIES_URL ||
+      'https://nomad-movies.nomadcoders.workers.dev/movies'
+  );
 
   return await response.json();
 }
